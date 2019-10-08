@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+:root{
+    --primary-color: #557A95;
+    --secondary-color: #F99500;
+    --light-color: #F3F3F3;
+    --dark-color: #333;
+    --max-width: 1100px;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--light-color);
+    line-height: 1.5;
+}
+
+p{
+    margin-bottom: 0.75rem;
+}
+
+a{
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+ul{
+    list-style: none;
+}
+
+img{
+    width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Staatlitches', cursive;
+    margin-bottom: 0.55rem;
+    line-height: 1.3;
+    letter-spacing: .15rem;
+    word-spacing: .30rem;
+}
+
+/*Scrollbars*/
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(0, 0,0 ,0.3);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/*UTILITY CLASSES*/
+.container{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+.category{
+    display: inline-block;
+    color: #FFF;
+    font-size: .55rem;
+    text-transform: uppercase;
+    padding: .4rem .6rem;
+    border-radius: 15px;
+    margin-bottom: .5rem;
+}
+.category-sports{ background: var(--category-sports); }
+.category-ent{ background: var(--category-ent); }
+.category-tech{ background: var(--category-tech); }
+
+.btn{
+    display: inline-block;
+    border: none;
+    background: var(--dark-color);
+    color: #FFF;
+    padding: .5rem 1.5rem;
+}
+.btn-primary{ background: var(--primary-color); }
+.btn-secondary{ background: var(--secondary-color); }
+.btn-light{
+    background: var(--light-color);
+    color: var(--dark-color);
+}
+
+.btn:hover{
+    opacity: 0.9;
+    transition: opacity .3s;
+}
+
+.btn-block{
+    display: block;
+    text-align: center;
+}
+
+.card{
+    background: #FFF;
+    padding: 1rem;
+}
+
+.bg-dark{
+    background: var(--dark-color);
+    color: #FFF;
+}
+.bg-primary{
+    background: var(--primary-color);
+    color: #FFF;
+}
+.bg-secondary{
+    background: var(--secondary-color);
+    color: #FFF;
+}
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a{
+    color: #FFF;
+}
+
+.py-1{ padding: 1.rem 0; }
+.py-2{ padding: 2rem 0; }
+.py-3{ padding: 3rem 0; }
+
+.p-1{ padding: 1.5rem; }
+.p-2{ padding: 2rem; }
+.p-3{ padding: 3rem; }
+
+.l-heading{ font-size: 3rem; }
+.m-heading{ font-size: 2.2rem; }
+
+.list li{
+    padding: 0.5rem;
+    border-bottom: dotted 1px #444;
+}
+.list li a:hover{
+    color: var(--primary-color);
+}
+/*#navbar*/
+
+#navbar{
+    background: #5D5C61;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+#navbar .container{
+    display: grid;
+    grid-template-columns: 6fr 3fr 2fr;
+    padding: 1rem;
+    align-items: center;
+}
+
+#navbar .logo{
+    width: 180px;
+}
+
+#navbar ul{
+    display: flex;
+    justify-self: end;
+}
+
+#navbar ul li a{
+    padding: .7rem;
+    font-weight: bold;
+}
+#navbar ul li a.current{
+    background: var(--primary-color);
+    color: #FFF;
+}
+#navbar ul li a:hover{
+    background: var(--light-color);
+    color: var(--dark-color);
+    transition: all .2s;
+}
+
+#navbar .social{
+    justify-self: center;
+}
+
+#navbar .social i{
+    color: #777;
+    margin-right: .5rem;
+}
+
+/*showcase*/
+#showcase{
+    color: #FFF;
+    background: var(--dark-color);
+    padding: 2rem;
+    position: relative;
+}
+#showcase:before{
+    content: '';
+    background: url(../images/lights.jpg) no-repeat center
+    center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+#showcase .container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#showcase .showcase-content{
+    z-index: 1;
+}
+
+#showcase .showcase-content p{
+    margin-bottom: 1rem;
+}
+
+/*HOME ARTICLES*/
+#home-articles .articles-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+#home-articles .articles-container .card-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    grid-column: 1/span 2;
+    align-items: center;
+}
+#home-articles .articles-container .card-grid:last-child{
+    grid-column: 2/span 2;
+}
+
+/*FOOTER*/
+#main-footer img{
+    width: 160px;
+}
+
+#main-footer .footer-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5rem;
+}
+#main-footer .footer-container>*:last-child{
+    background: #444;
+    grid-column: 1/span 4;
+    padding: .5rem;
+    text-align: center;
+    font-size: .75rem;
+}
+
+#main-footer .footer-container>*:last-child p{
+    margin-bottom: 0;
+}
+
+#main-footer .footer-container input[type="email"]{
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: .5rem;
+}
+#main-footer .footer-container input[type="submit"]{
+    width: 100%;
+}
+#main-footer .footer-container input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+/*About Page*/
+.page-content{
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-gap: 1.5rem;
+    margin: 2rem 0;
+}
+.page-content>*:first-child{
+    grid-row: 1/span 3;
+}
+
+/*Article*/
+
+.meta{
+    background: #EEE;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+.meta .category{
+    margin-bottom: 0;
+}
+
+</style>
+
+<head>
+    <title>NewsGrid | Lorem ipsum dolor sit amet.</title>
+    <!--PLUGINS-->
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?
+    family=Lato|Staatliches&display=swap" rel="stylesheet">
+    <!--END OF PLUGGINS-->
+    <link rel="icon" href="images/icon.png">
+    <!--CUSTOM CSS-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)"
+    href="mobile.css">
+    <!--END OF CUSTOM CSS-->
+</head>
+<body>
+    <!--#navbar-->
+    <!--NAVBAR-->
+        <nav id="navbar">
+            <h1 class="log"><span class="text-primary"><i class="fa fa-home"></i>Tech</span>Novation</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <!--/NAVBAR-->
+    <!--/#navbar-->
+    <!--#ABOUT-->
+    <section id="about">
+        <div class="container">
+            <div class="page-content">
+                <article class="card">
+                    <h1 class="l-heading">SECURITY</h1>
+                    
+                   <p>
+                        The smart home promises a futuristic home experience where everything you need is just a simple voice command away, even when you’re far from home. There are some very cool gadgets that let you do a lot with home automation, many of which are incorporated into home security systems. These include smart doorbells, smart locks, smart cameras, smart thermostats, smart lights, and smart smoke alarms.
+
+Here’s how each of these home automation devices can work with your home security system.
+
+
+                    <section>
+<h2>Smart Doorbells</h2>
+<p>One of the most common and security-focused components of a smart security system are&nbsp;<a target="_blank" rel="noreferrer noopener" href="https://www.safewise.com/resources/smart-doorbell-buyers-guide/">smart doorbell cameras</a>. These incorporate a small camera in the doorbell button. When someone rings the bell&mdash;or approaches the door, depending on the system&mdash;the doorbell sends an alert to your phone and activates the camera, letting you see a clear picture of who&rsquo;s there, no matter where you happen to be.</p>
+<p>Doorbell cameras are very useful, and there are several great options, like&nbsp;<a target="_blank" rel="noreferrer noopener" href="https://www.safewise.com/resources/smart-doorbell-buyers-guide/#product-0">Ring Video Doorbell</a>,&nbsp;<a target="_blank" rel="noreferrer noopener" href="https://www.safewise.com/resources/smart-doorbell-buyers-guide/#product-2">Vivint Doorbell Camera</a>, and&nbsp;<a target="_blank" rel="noreferrer noopener" href="https://www.safewise.com/resources/smart-doorbell-buyers-guide/#product-3">August Doorbell Cam</a>. These are features you&rsquo;ll want to look for in a video doorbell.</p>
+<ul class="bluelist">
+<li><b>High-resolution video</b></li>
+<li><b>Motion sensing</b></li>
+<li><b>Two-way audio</b></li>
+</ul>
+<img src="EZVIZ_WIFI_VIDEO_DOORBELL_WEBREADY-03884-1024x575.jpg">
+</section>
+
+<section>
+<h2>Smart Cameras</h2>
+<p><a target="_blank" rel="noreferrer noopener" href="https://www.safewise.com/resources/home-security-cameras/">Smart cameras</a>&nbsp;take the traditional security camera concept and turn the dial up to eleven. These cameras incorporate Wi-Fi connections that allow them to be viewed and controlled remotely using a smartphone app. Many can also upload the footage to the Cloud for storage, eliminating the need for a potentially complicated on-site storage setup.</p>
+<p>There are a lot of options in this space. Choosing one starts with knowing whether you want indoor or outdoor cameras. The main difference is construction: Outdoor cameras need to survive the elements, which usually means they are bulkier and made from tougher materials like metal. Indoor cameras can be smaller and more discreet, because they aren&rsquo;t as likely to get beaten up or tampered with.</p>
+<p>In either case, features you&rsquo;ll want to look for include high resolution, a wide field of view, motion detection, and audio recording. Normally we would include Wi-Fi connectivity as an essential feature, but because we&rsquo;re talking about smart cameras, Wi-Fi is a given.</p>
+<p>Some recommendations for great indoor cameras are the&nbsp;Nest Cam&nbsp;and&nbsp;<a href="https://www.amazon.com/Fujikam-Wireless-Monitoring-Surveillance-security/dp/B00JAJ9U8K/ref=as_li_ss_tl/?ie=UTF8&amp;qid=1456365109&amp;sr=8-1&amp;keywords=Vimtag%2BVT-361%2BHD&amp;linkCode=ll1&amp;tag=safewicom-20&amp;linkId=8acf5fd59efbbd8e08bf665defa3c415&amp;kbid=62750" target="_blank" rel="nofollow noopener" data-amzn-asin="B00JAJ9U8K">Vimtag 361 HD</a>. For outdoor cameras, check out the&nbsp;<a href="https://www.amazon.com/dp/B01BN1FD7E/ref=as_li_ss_tl/?ie=UTF8&amp;linkCode=ll1&amp;tag=safewicom-20&amp;linkId=ad9d8b4cdd6fb3bb920b533fc107de65&amp;kbid=62750" target="_blank" rel="nofollow noopener" data-amzn-asin="B01BN1FD7E">Amcrest QCAM</a>&nbsp;and the&nbsp;<a href="https://www.amazon.com/ZOSI-1000TVL-120Feet-outdoor-Security/dp/B00J21DFGE/ref=as_li_ss_tl/?s=hi&amp;ie=UTF8&amp;qid=1463080324&amp;sr=1-1&amp;keywords=ZOSI%2B960H&amp;linkCode=ll1&amp;tag=safewicom-20&amp;linkId=764f0c15eba08c4dda08f7c03e85403a&amp;kbid=62750" target="_blank" rel="nofollow noopener" data-amzn-asin="B00J21DFGE">ZOSI 960H</a>. Any of these options will serve you well.</p>
+<p>&nbsp;</p>
+<img src='1524261009_8682758413256.jpg'>
+</section>
+                   
+<section>
+<h2>Smart Smoke Alarms</h2>
+<p>The last common home automation feature of a security system is the humble&nbsp;<a rel="false" href="https://www.safewise.com/resources/smoke-alarm-buyers-guide/">smoke alarm</a>. This device takes the traditional smoke alarm and brings it into the digital age, with Wi-Fi connectivity and the ability to communicate and pinpoint exactly where a fire is located. The really nice thing about these alarms is that they can send the alerts to your phone so you can be aware of any issues even when you&rsquo;re away from home. You can also easily silence them in the event of a false alarm&mdash;who hasn&rsquo;t set off their smoke alarms at least once while cooking?</p>
+<p>Top picks in this category include the&nbsp;Nest Protect&nbsp;and the&nbsp;First Alert Onelink. Both detect carbon monoxide in addition to smoke and alert you in a human voice rather than a screeching alarm tone.</p>
+<p>If you have any further questions about home automation systems, take a look at our&nbsp;<a rel="false" href="https://www.safewise.com/resources/home-automation/">guide to home automation</a>.</p>
+<img src='article-2451271-18A2EEA500000578-844_634x289.jpg'>
+</section>
+
+
+                </article>
+                
+
+<!--            </a>-->
+
+<!--        </aside>-->
+
+    </div>
+
+</div>
+</section>
+</body>
+</html>
+
+
+
+
+
+
+
+
